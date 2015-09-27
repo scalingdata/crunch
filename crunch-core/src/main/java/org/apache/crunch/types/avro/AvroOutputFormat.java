@@ -45,7 +45,7 @@ public class AvroOutputFormat<T> extends FileOutputFormat<AvroWrapper<T>, NullWr
 
     if (org.apache.hadoop.mapred.FileOutputFormat.getCompressOutput(jc)) {
       int level = conf.getInt(org.apache.avro.mapred.AvroOutputFormat.DEFLATE_LEVEL_KEY,
-          org.apache.avro.mapred.AvroOutputFormat.DEFAULT_DEFLATE_LEVEL);
+          org.apache.avro.file.CodecFactory.DEFAULT_DEFLATE_LEVEL);
       String codecName = conf.get(AvroJob.OUTPUT_CODEC,
           org.apache.avro.file.DataFileConstants.DEFLATE_CODEC);
       CodecFactory codec = codecName.equals(org.apache.avro.file.DataFileConstants.DEFLATE_CODEC)
